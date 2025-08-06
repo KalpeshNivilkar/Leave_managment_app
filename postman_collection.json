@@ -1,0 +1,221 @@
+{
+  "info": {
+    "name": "Leave Management System API",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "Postman collection for Leave Management System API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"adminpass\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/signup",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["auth", "signup"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"adminpass\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Create Manager",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"manager1\",\n  \"password\": \"managerpass\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/manager",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["users", "manager"]
+        }
+      }
+    },
+    {
+      "name": "Create Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"employee1\",\n  \"password\": \"employeepass\",\n  \"manager_id\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/users/employee",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["users", "employee"]
+        }
+      }
+    },
+    {
+      "name": "Get Employees under Manager",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/users/employees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["users", "employees"]
+        }
+      }
+    },
+    {
+      "name": "Submit Leave Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start_date\": \"2024-01-15\",\n  \"end_date\": \"2024-01-17\",\n  \"reason\": \"Personal vacation\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/leave/request",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["leave", "request"]
+        }
+      }
+    },
+    {
+      "name": "View Leave Requests of Team",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/leave/requests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["leave", "requests"]
+        }
+      }
+    },
+    {
+      "name": "Approve / Reject Leave",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"approved\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/leave/request/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["leave", "request", "1"]
+        }
+      }
+    },
+    {
+      "name": "View Own Leave Requests",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/leave/my-requests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["leave", "my-requests"]
+        }
+      }
+    }
+  ]
+}
