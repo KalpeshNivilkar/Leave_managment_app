@@ -44,13 +44,13 @@ A **miniature** Leave Management System built with **Flask** demonstrating:
 ## 📂 Project Structure
 leave_manage/
 ├── routes/
-│ ├── auth_routes.py # Signup/Login APIs
-│ ├── leave_routes.py # Leave request & approval APIs
-│ ├── user_routes.py # User creation & management APIs
+│  ├── auth_routes.py # Signup/Login APIs
+│  ├── leave_routes.py # Leave request & approval APIs
+│  ├── user_routes.py # User creation & management APIs
 ├── tests/
-│ └── test_basic.py # Basic automated tests
+│  └── test_basic.py # Basic automated tests
 ├── utils/
-│ └── decorators.py # JWT & role-based access decorators
+│  └── decorators.py # JWT & role-based access decorators
 ├── app.py # Application entry point
 ├── config.py # App configuration
 ├── models.py # Database models
